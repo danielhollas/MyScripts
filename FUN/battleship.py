@@ -21,15 +21,18 @@ def random_col(board):
 # Here's the battleship.
 ship_row = random_row(board)
 ship_col = random_col(board)
+#print (ship_row, ship_col)
 
 # This is the main game loop.
 # We allow 4 guesses.
-for turn in range(4):
+for turn in range(8):
     guess_row = int(raw_input("Guess Row:"))
     guess_col = int(raw_input("Guess Col:"))
 
     if guess_row == ship_row and guess_col == ship_col:
         print "Congratulations! You sunk my battleship!"
+	board[ship_row][ship_col] = "B"
+    	print_board(board)
         break
     else:
         if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
